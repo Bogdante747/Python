@@ -1,0 +1,4 @@
+1) для создания моделей
+2) py manage.py makemigrations
+3) makemigrations
+4) py manage.py migrate

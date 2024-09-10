@@ -1,0 +1,4 @@
+1)views.py
+2)urls.py
+3)django-admin startproject название_проекта
+4)py manage.py startapp название_приложение

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <main>
+        <div class="background">
+            <div class="title">
+                <h1>Мебель и интерьер</h1>
+            </div>
+        </div>
+        <img src="../static/img/background.jpg" alt="background">
+    </main>
+
+    <style>
+        .background {
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+            width: 100%;
+            height: 107%;
+            position: absolute;
+            left: 0;
+        }
+
+        img{
+            width: 100%;
+            position: absolute;
+            left: 0;
+        }
+
+        .title {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 2;
+            color: white;
+        }
+
+        h1 {
+            font-size: 100pt;
+        }
+        
+    </style>
+{% endblock %}

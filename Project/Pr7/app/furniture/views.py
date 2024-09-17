@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from models.furniture import Furniture
+from .models import Furniture
 
 # Create your views here.
 def get_home(requset):

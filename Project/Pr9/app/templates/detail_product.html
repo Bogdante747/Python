@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    
+    <main>
+        <div class="photo">
+            <img src="{{ product.image.url }}" alt="">
+        </div>
+        <div class="description">
+            <h1>{{product.label}}</h1>
+            <button>Купить</button>
+        </div>
+    </main>
+
+    <style>
+        main {
+            background-color: rgb(230, 206, 176);
+            display: flex;
+            flex-direction: row;
+        }
+
+        .photo {
+            width: 70%;
+        }
+
+        .photo>img {
+            width: 100%;
+        }
+
+        .description {
+            width: 30%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .description>h1 {
+            font-size: 30pt;
+        }
+
+        .description>button {
+            width: 300px;
+            height: 50px;
+            font-size: 20pt;
+        }
+
+    </style>
+{% endblock %}

@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UsernameField
 from django.core.validators import RegexValidator
 from django.contrib.auth.models import User
+from .models import Profile
 
 class RegisterForm(UserCreationForm):
     username = forms.CharField(
@@ -105,44 +106,49 @@ class LoginForm(AuthenticationForm):
             raise forms.ValidationError('Такого пользователя не существует', code='invalid')
         return username
     
-class ProfileForm(forms.Form):
-    country = forms.CharField(
-        widget=forms.TextInput(
-            attrs={
-            'placeholder': 'Страна',
-            }
-        ),
-        required=False,
-    )
-    city = forms.CharField(
-        widget=forms.TextInput(
-            attrs={
-            'placeholder': 'Город',
-            }
-        ),
-        required=False,
-    )
-    street = forms.CharField(
-        widget=forms.TextInput(
-            attrs={
-            'placeholder': 'Улица',
-            }
-        ),
-        required=False,
-    )
-    house = forms.CharField(
-        widget=forms.TextInput(
-            attrs={
-            'placeholder': 'Дом',
-            }
-        ),
-        required=False,
-    )
-    apartment_number = forms.CharField(
-        widget=forms.TextInput(
-            attrs={
-            'placeholder': 'Номер квартиры',
-            }
-        ),
-        required=False,
-    )
+# class ProfileForm(forms.Form):
+#     country = forms.CharField(
+#         widget=forms.TextInput(
+#             attrs={
+#             'placeholder': 'Страна',
+#             }
+#         ),
+#         required=False,
+#     )
+#     city = forms.CharField(
+#         widget=forms.TextInput(
+#             attrs={
+#             'placeholder': 'Город',
+#             }
+#         ),
+#         required=False,
+#     )
+#     street = forms.CharField(
+#         widget=forms.TextInput(
+#             attrs={
+#             'placeholder': 'Улица',
+#             }
+#         ),
+#         required=False,
+#     )
+#     house = forms.CharField(
+#         widget=forms.TextInput(
+#             attrs={
+#             'placeholder': 'Дом',
+#             }
+#         ),
+#         required=False,
+#     )
+#     apartment_number = forms.CharField(
+#         widget=forms.TextInput(
+#             attrs={
+#             'placeholder': 'Номер квартиры',
+#             }
+#         ),
+#         required=False,
+#     )
+
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        exclude = ['user']

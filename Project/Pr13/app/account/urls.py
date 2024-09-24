@@ -7,6 +7,6 @@ urlpatterns = [
     path('register/', register),
     path('login/', login_user),
     path('logout/', logout_view, name='logout'),
-    path('profile/', profile_view, name='profile'),
-    path('profile/edit/', profile_edit, name='editProfile'),
+    path('profile/<int:pk>', profile_view, name='profile'),
+    path('profile/<int:pk>/edit/', profile_edit.as_view(), name='editProfile'),
 ]

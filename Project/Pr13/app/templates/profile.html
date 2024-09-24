@@ -4,6 +4,11 @@
 
     <h2>Пользователь:{{user.user.username}}</h2>
     <h2>Пол:{{user.gender}}</h2>
+    <h2>Страна:{{user.country}}</h2>
     <h2>Город:{{user.city}}</h2>
+    <h2>Улица:{{user.street}}</h2>
+    <h2>Дом:{{user.house}}</h2>
+    <h2>Номер квартиры:{{user.apartment_number}}</h2>
+    <a href="{% url 'editProfile' user.id %}">Изменить</a>
 
 {% endblock %}

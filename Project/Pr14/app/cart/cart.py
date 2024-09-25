@@ -65,3 +65,14 @@ class CartSession(SessionBase):
     def clear(self):
         del self.session[self.CART_SESSION_ID]
         self.save()
+
+    def change_quantity(self, furniture, method):
+        furniture_id = str(furniture.id)
+
+        if method == 'plus':
+            self.cart[furniture_id]['quantity'] += 1
+        elif method == 'minus':
+            if self.cart[furniture_id]['quantity'] > 1:
+                self.cart[furniture_id]['quantity'] -= 1
+
+        self.save()

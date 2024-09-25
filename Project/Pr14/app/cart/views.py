@@ -23,3 +23,21 @@ def cart_detail(request: HttpRequest):
     return render(request, 'cart_detail.html', context={
         'cart': cart
     })
+
+def cart_clear(request: HttpRequest):
+    cart = CartSession(request.session)
+    cart.clear()
+    return redirect(reverse('cart_detail'))
+
+def cart_plus(request: HttpRequest, furniture_id):
+    cart = CartSession(request.session)
+    furniture = get_object_or_404(Furniture, id=furniture_id)
+    cart.change_quantity(furniture=furniture, method="plus")
+    return redirect(reverse('cart_detail'))
+
+
+def cart_minus(request: HttpRequest, furniture_id):
+    cart = CartSession(request.session)
+    furniture = get_object_or_404(Furniture, id=furniture_id)
+    cart.change_quantity(furniture=furniture, method="minus")
+    return redirect(reverse('cart_detail'))

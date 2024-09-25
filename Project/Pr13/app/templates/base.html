@@ -24,6 +24,9 @@
             {% if request.user.id %}
                 <a href="{% url 'profile' user.id %}">Профиль</a>
                 <a href="{% url 'logout' %}">Выйти</a>
+            {% else %}
+                <a href="{% url 'register' %}">Зарегистрироваться</a>
+                <a href="{% url 'login' %}">Войти</a>
             {% endif %}
         </div>
         <div>

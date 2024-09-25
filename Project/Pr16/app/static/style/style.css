@@ -1,0 +1,27 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    height: 90px;
+    background-color: burlywood;
+    display: flex;
+    flex-direction: row;
+    font-size: 15pt;
+    align-items: center;
+}
+
+header > div {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+main {
+    position: absolute;
+    top: 90px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

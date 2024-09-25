@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+    <div>
+        {% for item in cart %}
+
+        <div>
+            <a href="{% url 'cart_minus' item.furniture.id %}">-</a>
+            Количество: {{item.quantity}}
+            <a href="{% url 'cart_plus' item.furniture.id %}">+</a>
+            Цена: {{item.price}}
+
+            <img src="{{ item.furniture.image.url }}" width="100px" alt="">
+            <a href="{% url 'cart_remove' item.furniture.id %}">Удалить</a>
+        </div>
+
+        {% endfor %}
+    </div>
+    Сумма корзины:{{ cart.get_total_price }}
+    <a href="{% url 'cart_clear' %}">Очистить корзину</a>
+</div>
+<div>
+    <div>
+        <h2>Оформление заказа</h2>
+    </div>
+    <form action="{% url 'create_order' %}" method="post">
+
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Заказать</button>
+    </form>
+</div>
+
+{% endblock %}
